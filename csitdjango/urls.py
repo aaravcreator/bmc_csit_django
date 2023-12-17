@@ -44,9 +44,20 @@ def multiplication(request):
 def homePage(request):
     return render(request,'home.html')
 
+
+def mypage(request):
+    context = {
+        'movie_list' :['ANIMAL','LEO','JAWAN','JAILER'],
+        'favourite_movie':"LEO"
+    }
+    return render(request,'mypage.html',context)
+
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index),
+    path('',mypage),
     path('sum/<str:a>/<str:b>/',summer,),
     path('queryparams/',multiplication),
     path('home/',homePage,)

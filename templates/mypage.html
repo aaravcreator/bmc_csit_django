@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title%}
+CIST WEBAPP - MY PAGE
+{% endblock %}
+
+
+{% block content %}
+
+<h1>MY PAGE</h1>
+<hr>
+<h2>LIST OF MOVIES</h2>
+{% for movie in movie_list %}
+
+
+{% if movie == favourite_movie %}
+<li>{{movie}} <span class="bg-danger badge text-white">🧡</span></li>
+
+{% else %}
+<li>{{movie}}</li>
+{% endif %}
+
+{% endfor %}
+
+<h2>FAVOURITE MOVIE</h2>
+<span class="bg-primary badge text-white">{{favourite_movie}}
+</span>
+{% endblock content %}
