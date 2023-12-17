@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% load static %}
 {% block title%}
 CIST WEBAPP - MY PAGE
 {% endblock %}
@@ -23,7 +23,29 @@ CIST WEBAPP - MY PAGE
 
 {% endfor %}
 
+
+
+
+
 <h2>FAVOURITE MOVIE</h2>
 <span class="bg-primary badge text-white">{{favourite_movie}}
 </span>
+
+
+
+
+
+
+
+<script>
+
+    console.log("THIS IS JS")
+</script>
+
+
+
+<script src="{% static 'main.js' %}"></script>
+
+
+
 {% endblock content %}
