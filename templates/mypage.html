@@ -10,6 +10,56 @@ CIST WEBAPP - MY PAGE
 
 <h1>MY PAGE</h1>
 <hr>
+
+<form class="mx-5 my-5">
+    <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="exampleInputName">
+    </div>
+    <!-- <div class="mb-3">
+        <label for="exampleInputAddress" class="form-label">Address</label>
+        <input type="text" name="address" class="form-control" id="exampleInputAddress">
+    </div> -->
+    <div class="mb-3">
+        <label for="exampleGenderSelect" class="form-label">Gender</label>
+        <select class="form-select" id="exampleGenderSelect" name="gender">
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+            <option value="N/A">Other</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<h2>Person List in Database</h2>
+<hr>
+{% for person in person_list %}
+
+<h1><strong>Name :</strong> {{person.name}}</h1>
+<h2> <strong>Address :</strong> {{person.address}}</h2>
+
+
+<h2 class=" 
+{% if person.gender == "MALE" %}
+ bg-dark text-white 
+ {% elif person.gender == "FEMALE" %}
+
+  bg-primary text-white 
+
+  {% else %}
+  
+  {% endif %} 
+  "> <strong>Gender :</strong> {{person.gender}}</h2>
+
+
+{% endfor %}
+
+
+
+
 <h2>LIST OF MOVIES</h2>
 {% for movie in movie_list %}
 

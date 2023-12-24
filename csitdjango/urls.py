@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import *
-
+from django.conf import settings
+from django.conf.urls.static import static
 ## all the view function moved to views.py file and imported above
 
 urlpatterns = [
@@ -28,4 +29,4 @@ urlpatterns = [
     path('home/',homePage,),
     path('niceadmin/',niceadmin),
     path("",include('dashboard.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
