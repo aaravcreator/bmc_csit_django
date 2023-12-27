@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponse,render
 from random import randint
-from dashboard.models import Person
+from dashboard.models import Person,Partner
 
 def niceadmin(request):
     return render(request,'nice_admin.html')
@@ -30,6 +30,7 @@ def homePage(request):
 
 
 def mypage(request):
+    partners = Partner.objects.all()
     if request.method == "GET":
         name = request.GET.get('name')
         # address = request.GET.get('address')
@@ -49,6 +50,7 @@ def mypage(request):
     context = {
         # 'movie_list' :['ANIMAL','LEO','JAWAN','JAILER'],
         'person_list':person_list,
+        'partner_list':partners,
         'favourite_movie':"LEO"
     }
     return render(request,'mypage.html',context)

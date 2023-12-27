@@ -11,6 +11,19 @@ CIST WEBAPP - MY PAGE
 <h1>MY PAGE</h1>
 <hr>
 
+
+
+<h2>My partners</h2>
+<hr>
+
+{% for partner in partner_list %}
+
+<h3>{{partner.name}}</h3>
+<img src="{{partner.logo.url}}" style="width: 100px;" alt="{{partner.name}}">
+<hr>
+
+
+{% endfor %}
 <form class="mx-5 my-5">
     <div class="mb-3">
         <label for="exampleInputName" class="form-label">Name</label>

@@ -16,12 +16,8 @@ class Mammal(Animal):
     def introduction(self):
         print(f"Mero name {self.name} ho, ma {self.age} ko vaye.., ma euta Mammal ho")
     
-
 mammal = Mammal(16,"JANAKI",gender="FEMALE")
 mammal.introduction()
-
-
-
 
 
 print(a.id)
