@@ -54,5 +54,5 @@ python manage.py runserver
 ```
 
 ## SCREENSHOTS
-<!-- ![Login Page](./screenshots/login.png) -->
+![Dashboard Page](./screenshots/dashboard.png)
 <!-- ![ Page](./screenshots/credentials.png) -->

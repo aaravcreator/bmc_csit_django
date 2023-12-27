@@ -1,1 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
 <h1>This is DASHBOARD</h1>
+
+
+
+<a class="btn btn-primary text-white" href="{% url 'dashboard:create_person' %}"> Create Person </a>
+<h2>Person List</h2>
+
+{% if person_list %}
+{% for person in person_list %}
+<span>{{person.id}}</span>
+<h3>Name : {{person.name}}</h3>
+<h2>Address : {{person.address}}</h2>
+<p>Gender : {{person.gender }}</p>
+<h3>School : {{person.school.name }} [{{person.school.address}}]</h3>
+
+<a class="btn btn-warning " href="{% url 'dashboard:updatePerson' person.id %}"> Update Person </a>
+<a  class="btn btn-danger text-white" href="{% url 'dashboard:deletePerson' person.id %}"> Delete Person </a>
+
+<hr>
+{% endfor %}
+
+{% else %}
+<p>No Persons Found</p>
+{% endif %}
+
+{% endblock %}
