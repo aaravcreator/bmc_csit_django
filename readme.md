@@ -54,5 +54,8 @@ python manage.py runserver
 ```
 
 ## SCREENSHOTS
+- Dashboard Page
 ![Dashboard Page](./screenshots/dashboard.png)
-<!-- ![ Page](./screenshots/credentials.png) -->
+- Create Person Page
+
+![Create Person Page](./screenshots/person.png)
