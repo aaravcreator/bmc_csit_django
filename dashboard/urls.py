@@ -6,6 +6,8 @@ app_name = 'dashboard'
 
 
 urlpatterns = [
+    path('login/',loginPage,name='login'),
+    path('logout/',logoutPage,name='logout'),
     path('dashboard/',dashboard,name='dashboardPage'),
     path('createPerson/',createPerson,name='create_person'),
     path('updatePerson/<int:person_id>/',updatePerson,name="updatePerson"),

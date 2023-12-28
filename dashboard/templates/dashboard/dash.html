@@ -6,7 +6,16 @@
 <h1>This is DASHBOARD</h1>
 
 
-
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Welcome, {{request.user}}!</h2>
+      </div>
+      <div class="col-md-6 text-md-right">
+        <a href="{% url 'dashboard:logout' %}" class="btn btn-danger">Logout</a>
+      </div>
+    </div>
+  </div>
 <a class="btn btn-primary text-white" href="{% url 'dashboard:create_person' %}"> Create Person </a>
 <h2>Person List</h2>
 

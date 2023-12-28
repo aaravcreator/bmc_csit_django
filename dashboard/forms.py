@@ -8,4 +8,6 @@ class PersonForm(forms.ModelForm):
         model = Person
 
 class LoginForm(forms.Form):
-    pass
+    username = forms.CharField(label="Username",max_length=100)
+    password = forms.CharField(label="Password",max_length=50,widget=forms.PasswordInput)
+
