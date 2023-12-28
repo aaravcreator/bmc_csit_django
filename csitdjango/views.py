@@ -56,3 +56,5 @@ def mypage(request):
     return render(request,'mypage.html',context)
 
 
+
+

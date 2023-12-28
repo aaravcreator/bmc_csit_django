@@ -6,3 +6,6 @@ class PersonForm(forms.ModelForm):
         # fields = ['name','address','gender','school']
         fields = "__all__"
         model = Person
+
+class LoginForm(forms.Form):
+    pass
