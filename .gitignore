@@ -2,3 +2,5 @@ csitenv
 cloneenv
 db.sqlite3
 media
+mero_test.py
+

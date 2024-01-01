@@ -46,7 +46,12 @@ def dashboard(request):
     '''
     We list the person in the dashboard
     '''
-    person_list = Person.objects.all()
+    search_key = request.GET.get('searchkey')
+    if search_key is not None and search_key is not "":
+        person_list = Person.objects.filter(created_by = request.user,name__icontains=search_key).order_by("-updated")
+    # person_list = Person.objects.all().order_by("-updated")
+    else:
+        person_list = Person.objects.filter(created_by = request.user).order_by("-updated")
     context = {
         'person_list':person_list,
     }
@@ -57,10 +62,14 @@ def createPerson(request):
     person_form = PersonForm()
     if request.method == "POST":
 
-        person_form = PersonForm(request.POST)
+        person_form = PersonForm(request.POST,request.FILES)
         if person_form.is_valid():
             print('form valid')
-            person_form.save()
+            ''' We assign the user here who made 
+            the request to create the person obj here'''
+            person_obj = person_form.save(commit=False) 
+            person_obj.created_by = request.user
+            person_obj.save()
             print('now redirecting')
             return redirect('dashboard:dashboardPage')
 
@@ -74,7 +83,7 @@ def updatePerson(request,person_id):
     person_form = PersonForm(instance=person)
 
     if request.method == 'POST':
-        person_form = PersonForm(request.POST,instance=person)
+        person_form = PersonForm(request.POST,request.FILES,instance=person)
         if person_form.is_valid():
             person_form.save()
             return redirect('dashboard:dashboardPage')

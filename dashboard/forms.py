@@ -3,8 +3,8 @@ from .models import Person
 
 class PersonForm(forms.ModelForm):
     class Meta:
-        # fields = ['name','address','gender','school']
-        fields = "__all__"
+        fields = ['name','address','gender','school','photo','phone']
+        # fields = "__all__"
         model = Person
 
 class LoginForm(forms.Form):

@@ -16,17 +16,25 @@
       </div>
     </div>
   </div>
+
+<div class="container">
+
+    
 <a class="btn btn-primary text-white" href="{% url 'dashboard:create_person' %}"> Create Person </a>
 <h2>Person List</h2>
 
 {% if person_list %}
 {% for person in person_list %}
 <span>{{person.id}}</span>
+<br>
+<img src="{{person.photo.url}}" style="width:200px; height: 200px; border-radius: 50%;" alt="">
 <h3>Name : {{person.name}}</h3>
 <h2>Address : {{person.address}}</h2>
 <p>Gender : {{person.gender }}</p>
 <h3>School : {{person.school.name }} [{{person.school.address}}]</h3>
-
+<p>Created : {{person.timestamp | date:'Y-m-d H:i' }}</p>
+<p>Updated : {{person.updated | date:'Y-m-d H:i' }}</p>
+<p>Created By: <span class="bg-success py-2 px-2 text-white">{{person.created_by }}</span> </p>
 <a class="btn btn-warning " href="{% url 'dashboard:updatePerson' person.id %}"> Update Person </a>
 <a  class="btn btn-danger text-white" href="{% url 'dashboard:deletePerson' person.id %}"> Delete Person </a>
 
@@ -36,5 +44,6 @@
 {% else %}
 <p>No Persons Found</p>
 {% endif %}
+</div>
 
 {% endblock %}
