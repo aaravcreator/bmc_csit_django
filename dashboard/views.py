@@ -4,10 +4,38 @@ from .models import Person
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+from django.http import JsonResponse
+import time
+def productView(request):
+    data = [
+  {
+    "name": "Widget A",
+    "markedPrice": 25.0,
+    "salePrice": 19.99,
+    "shopName": "Tech Emporium"
+  },
+  {
+    "name": "Gadget X",
+    "markedPrice": 45.0,
+    "salePrice": 39.99,
+    "shopName": "Electro Depot"
+  },
+  {
+    "name": "Super Gizmo",
+    "markedPrice": 30.0,
+    "salePrice": 24.99,
+    "shopName": "Innovation Hub"
+  },
+  {
+    "name": "Tech Marvel",
+    "markedPrice": 60.0,
+    "salePrice": 49.99,
+    "shopName": "Digital Haven"
+  }
+]
+    time.sleep(5)
 
-
-
-
+    return JsonResponse(data,safe=False)
 
 def loginPage(request):
     login_form = LoginForm()
